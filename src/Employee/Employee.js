@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 
 let debounceTimeout;
 
-const EmployeeComponent = ({ organization }) => {
+const EmployeeComponent = (props) => {
+  console.log(" props ", props)
   const [employees, setEmployees] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -96,7 +97,7 @@ const EmployeeComponent = ({ organization }) => {
 
   return (
     <div>
-      <h1>Employees from {organization}</h1>
+      <h1 onClick={props.changeOrganization}>Employees from {props.appname}</h1>
 
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}

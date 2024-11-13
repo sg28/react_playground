@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import useNameLength from "./useNameLength";
 let debounceTimeout;
 
 const EmployeeComponent = (props) => {
@@ -11,6 +11,8 @@ const EmployeeComponent = (props) => {
   const [employeeExist, setEmployeeExist] = useState("");
   const [searchType, setSearchType] = useState("s1");
 
+  const inputNameLength = useNameLength("Spanrtan"); // custom hooks
+  
   // Fetch employees
   const fetchEmployees = async () => {
     const apiUrl = "https://jsonplaceholder.typicode.com/users";
